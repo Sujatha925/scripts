@@ -1,6 +1,6 @@
 #!/bin/bash
 IFS=','
-SCRIPT=/u01/app/oracle/middleware/devops/scripts/dep
+SCRIPT=/u01/app/oracle/middleware/devops/scripts
 user=$user_name
 password=$pass
 url1=$url1
