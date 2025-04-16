@@ -1,5 +1,5 @@
 #!/bin/bash
-SERVER_DETAILS=/u01/app/oracle/middleware/devops/scripts/servers_list
+SERVER_DETAILS=/u01/app/oracle/middleware/devops/scripts/scripts/servers_list
 MAIL_FILE=/tmp/mail.txt
 TABLE_FILE=/tmp/status
 
