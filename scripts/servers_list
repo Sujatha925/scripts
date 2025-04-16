@@ -1,0 +1,11 @@
+health
+AdminServer 192.168.56.101 7001
+meditation 192.168.56.101 7003
+peace 192.168.56.101 7006
+
+finance 
+AdminServer 192.168.56.101 8001
+finance_1 192.168.56.101 8003
+finance-2 192.168.56.101 8006
+
+ 
