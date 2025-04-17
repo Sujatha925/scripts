@@ -1,29 +1,30 @@
 #!/bin/bash
-SERVER_DETAILS=/u01/app/oracle/middleware/devops/git/git-test/deploy/servers_list
+SERVER_DETAILS=/u01/app/oracle/middleware/devops/scripts/server.status/servers_list
 MAIL_FILE=/tmp/mail.txt
-TABLE_FILE=/tmp/status1
+TABLE_FILE=/tmp/status
 
 func_sendMail()
 {
-echo "Mime-version: 1.0" > $MAIL_FILE
+echo "Mime-Version: 1.0" > $MAIL_FILE
 echo "Content-type: text/html; charset="iso-8859-1"" >> $MAIL_FILE
-echo "To: oracle@linux-1" >> $MAIL_FILE
+echo "To: oracle@localhost" >> $MAIL_FILE
+echo "Subject: Servers Down" >> $MAIL_FILE
 echo " " >> $MAIL_FILE
 cat $TABLE_FILE >> $MAIL_FILE
-cat $MAIL_FILE | /usr/sbin/sendmail  -t -F "servers Alert"
+cat $MAIL_FILE | /usr/sbin/sendmail -t -F "servers Alert"
 }
 
 func_check_servers()
 {
 while read info name port
 do
-  if [ -n "$port" ];then
-     status=`telnat $name $port < /dev/null 2>/dev/null | grep -w connected`
-	if [ -z "$status" ];then
-	  echo "$info SHUTDOWN" >> $TABLE_FILE
-	else
-	  echo "$info RUNNING" >> $TABLE_FILE
-	fi
+if [ -n "$port" ];then
+     status=`telnet $name $port < /dev/null 2>/dev/null | grep -w Connected`
+     if [ -z "$status" ];then
+     echo "$info SHUTDOWN" >> $TABLE_FILE
+     else
+     echo "$info RUNNING" >> $TABLE_FILE
+     fi
   else
      echo "$info" >> $TABLE_FILE
   fi
