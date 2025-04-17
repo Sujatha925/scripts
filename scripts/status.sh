@@ -1,7 +1,7 @@
 #!/bin/bash
 SERVER_DETAILS=/u01/app/oracle/middleware/devops/git/git-test/scripts/servers_list
 MAIL_FILE=/tmp/mail.txt
-TABLE_FILE=/tmp/status
+TABLE_FILE=/tmp/status1
 
 func_sendMail()
 {
