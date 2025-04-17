@@ -1,11 +1,14 @@
 health
-AdminServer 192.168.0.101 7001
+AdminServer(admin) 192.168.0.101 7001
 meditation 192.168.0.101 7003
-peace 192.168.0.101 7006
+peace 192.168.0.101 7005
 
 finance 
 AdminServer 192.168.56.101 8001
 finance_1 192.168.56.101 8003
 finance-2 192.168.56.101 8006
+
+tomcat
+Jenkins 192.168.0.101 8080
 
  
